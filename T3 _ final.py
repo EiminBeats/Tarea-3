@@ -6,7 +6,7 @@ Created on Mon Mar  7 09:43:42 2022
 """
 
 from math import e, exp
-import scipy 
+from scipy import special 
 import numpy as np
 import pandas as pd
 import os
@@ -127,4 +127,6 @@ l= prob1 * df["weight"]
 
 #Sumar sobre todas las observaciones
 int_inciso_4 = np.sum(l)
+
+
 
