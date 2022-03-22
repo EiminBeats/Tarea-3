@@ -1,0 +1,38 @@
+---
+title: "T3"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+4.- En esta pregunta implementaremos el método de integración basado en la cuadratura de Smolyak (1963), propuesto por Heiss and Winschel (2008).
+
+Sea
+
+$$
+I = \frac{1}{\sqrt{2 \pi}} \int_{- \infty}^{ \infty} \int_{- \infty}^{ \infty} \int_{- \infty}^{ \infty} \int_{- \infty}^{ \infty} \int_{- \infty}^{ \infty} \frac{e^{\alpha _{1}-2 \beta_{p}}}{\sum_{j=4} ^{4} e^{\alpha _{j} - 2^{j} \beta_{p}}} e^{\frac{- \beta_{p} ^{2}}{2}} e^{\frac{- \alpha_{1} ^{2}}{2}}  e^{\frac{- \alpha_{2} ^{2}}{2}} e^{\frac{- \alpha_{3} ^{2}}{2}} e^{\frac{- \alpha_{4} ^{2}}{2}} d \beta_{p} d\alpha_{1} d\alpha_{2} d\alpha_{3} d\alpha_{4} 
+$$
+
+Calcule esta integral usando $n=5$ nodos de integracion en cada dimensión. Las tablas con los nodos de integración y los pesos calculados se encuentran en la página "Quadrature on sparse grids".
+
+Empleamos la regla de integración "GQN" en 5 dimensiones.
+
+Tenemos que:
+
+$$
+f(x_{i}) = \frac{e^{\alpha _{1}-2 \beta_{p}}}{\sum_{j=4} ^{4} e^{\alpha _{j} - 2^{j} \beta_{p}}}, \thinspace con \thinspace \thinspace x_{i} = \alpha_{1}, \alpha_{2}, \alpha_{3}, \alpha_{4}, \beta_{p} 
+$$
+La integral $I$ puede reescribirse de la siguiente manera, donde los pesos estan representados por $w_{i} = \frac{e^{- \frac{x'x}{2}}}{\sqrt{2 \pi}}$:
+
+$$
+I \approx \sum _{i=1}^{n} w_{i} f(x_{i})
+$$
+Al realizar la evaluación de la integral, el resultado es el siguiente:
+
+$$
+I \approx  0.31025601079399057
+$$
